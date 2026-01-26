@@ -10,3 +10,13 @@ Aprofuncando o conhecimento em arquitetura de microsserviços.
 > - MySQL
 > - Eureka
 > - Api Gateway
+
+### Subindo novas instâncias
+```
+& "c:\alura-food\pedidos\mvnw.cmd" spring-boot:run -f "c:\alura-food\pedidos\pom.xml"
+```
+
+### Endpoints
+- Eureka = `localhost:8081`
+- Serviço de pedidos = `localhost:8082/pedidos-ms/blabla`
+- Serviço de pagamentos = `localhost:8082/pagamentos-ms/tandandan`
