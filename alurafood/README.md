@@ -10,6 +10,7 @@ Aprofuncando o conhecimento em arquitetura de microsserviços.
 > - MySQL
 > - Eureka
 > - Api Gateway
+> - OpenFeign
 
 ### Subindo novas instâncias
 ```
@@ -20,3 +21,7 @@ Aprofuncando o conhecimento em arquitetura de microsserviços.
 - Eureka = `localhost:8081`
 - Serviço de pedidos = `localhost:8082/pedidos-ms/blabla`
 - Serviço de pagamentos = `localhost:8082/pagamentos-ms/tandandan`
+
+> O *Eureka Client* serve para registrar e descobrir serviços automaticamente em uma arquitetura de microserviços.
+> *OpenFeign* é usado para comunicação sícrona com o servidor 
+> 
