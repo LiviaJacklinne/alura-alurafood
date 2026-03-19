@@ -3,23 +3,16 @@ package br.com.alurafood.pedidos.controller;
 import br.com.alurafood.pedidos.dto.PedidoDto;
 import br.com.alurafood.pedidos.dto.StatusDto;
 import br.com.alurafood.pedidos.service.PedidoService;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-
 import java.net.URI;
 import java.util.List;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import lombok.Value;
-
 
 @RestController
 @RequestMapping("/pedidos")
@@ -41,10 +34,9 @@ public class PedidoController {
         }
 
         @GetMapping("/porta")
-        public String retornaPorta(@Value("${local.server.port}") String porta) {
-            return String.format("Serviço executando na porta %s", porta);
+        public String retornaPorta(@Value("${local.server.port}") String porta){
+            return String.format("Requisição respondida pela instância executando na porta %s", porta);
         }
-        
 
         @PostMapping()
         public ResponseEntity<PedidoDto> realizaPedido(@RequestBody @Valid PedidoDto dto, UriComponentsBuilder uriBuilder) {
