@@ -9,6 +9,7 @@ Aplicação desenvolvida para o estudo de Microsserviços e Mensageria;
 ## Stack
 > - Java 17
 > - Spring 2.6.7
+> - Swagger 1.7
 > - Lombok
 > - Microsserviço
 > - Eureka
@@ -27,13 +28,16 @@ Quando o container estiver de pé, podemos acessar a aplicação pela url [local
 ### Microsserviços
 Execute os microsserviços na seguinte ordem:
 ```bash
-# 1º Serviço de descoberta (localhost:8081)
+# 1º Dockercompose
+rabbitmq
+
+# 2º Serviço de descoberta (localhost:8081)
 server 
 
-# 2º
+# 3º
 gateway
 
-# 3º (tanto faz qual do dois será executado primeiro)
+# 4º (tanto faz qual do dois será executado primeiro)
 pedidos
 pagamentos
 ```
@@ -42,9 +46,10 @@ pagamentos
 - Eureka = `localhost:8081`
 - Serviço de pedidos = `localhost:8082/pedidos-ms/blabla`
 - Serviço de pagamentos = `localhost:8082/pagamentos-ms/tandandan`
+- Swagger: [http://localhost:8082/swagger-ui.html](http://localhost:8082/swagger-ui.html)
 
 <br>
 
-> O **Eureka Client** serve para registrar e descobrir serviços automaticamente em uma arquitetura de microserviços.<br>
-> **OpenFeign** é usado para comunicação sícrona com os serviços.
->
+> O **Eureka Client** serve para registrar e descobrir serviços automaticamente em uma arquitetura de microserviços;<br>
+> **OpenFeign** é usado para comunicação sícrona com os serviços; <br>
+> Para o **Swagger** usamos duas dependencias: `springdoc-openapi-webflux-ui` para o gatawey e `springdoc-openapi-ui` para os demais MS;
